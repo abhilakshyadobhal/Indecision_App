@@ -13,10 +13,10 @@ class AddOptions extends Component {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
-    this.setState(() => {
-      return { error };
-    });
-    e.target.elements.option.value = '';
+    this.setState(() => ({ error }));
+    if (!error) {
+      e.target.elements.option.value = '';
+    }
   }
 
   render() {
